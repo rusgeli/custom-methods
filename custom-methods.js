@@ -83,7 +83,8 @@ Node.prototype.on = function(event, selector, callback) {
         let elems = Array.from(this.querySelectorAll(selector));
         let target = e.target;
         if (elems.indexOf(target) != -1) {
-            callback(e);
+            let callbackMod = callback.bind(e.target);
+            callbackMod(e);
         }
     });
     return true;
