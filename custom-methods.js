@@ -67,14 +67,9 @@ Node.prototype.modal = function() {
     document.addEventListener('click', closeModals);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const links = document.querySelectorAll('.custom-modal.open-link')
-    links.forEach(item => {
-        item.modal();
-    });
-});
 
-
+/* Добавляет обработчик callback события event на дочерние элементы по селектору selector элемента Node. */
+/* Контекст -- элемент, который спровоцировал событие  */
 Node.prototype.on = function(event, selector, callback) {
     if (typeof event !== 'string' || typeof selector !== 'string' || typeof callback !== 'function') {
         return false;
@@ -89,3 +84,9 @@ Node.prototype.on = function(event, selector, callback) {
     });
     return true;
 }
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('.custom-modal.open-link')
+    links.forEach(item => {
+        item.modal();
+    });
+});
